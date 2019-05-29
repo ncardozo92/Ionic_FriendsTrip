@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Username</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+          <ion-label>Datos personales</ion-label>
+          <ion-input type="text" value="usuario" [disabled]="!enableEmailEdit"></ion-input>
+          <ion-input type="text" value="developer" [disabled]="!enableEmailEdit"></ion-input>
+          <ion-label position="stacked">Dirección de correo</ion-label>
+          <ion-input type="text" [disabled]="!enableEmailEdit" value="usuario@gmail.com"></ion-input>
+          <ion-button color="primary" (click)="changeEmailEdition()" *ngIf="!enableEmailEdit" size="small">
+            <ion-icon name="create"></ion-icon>
+          </ion-button>
+          <ion-button color="success" (click)="updateEmail()" *ngIf="enableEmailEdit" size="small">
+            <ion-icon name="checkmark"></ion-icon>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-button expand="block" (click)="showAlertChangePassword()" size="small">Cambiar contraseña</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="warning" (click)="logout()" size="small">Cerrar Sesión</ion-button>
+        <ion-button expand="block" color="danger" (click)="showAlertDeleteProfile()" size="small">Eliminar perfil</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
