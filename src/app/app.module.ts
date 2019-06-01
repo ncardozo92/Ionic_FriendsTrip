@@ -16,6 +16,7 @@ import { GuideRegistryPageModule } from './guide-registry/guide-registry.module'
 import { GuideRegistryPage } from './guide-registry/guide-registry.page';
 import { TravelModalPage } from './travel-modal/travel-modal.page';
 import { TravelModalPageModule } from './travel-modal/travel-modal.module';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +25,7 @@ import { TravelModalPageModule } from './travel-modal/travel-modal.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     RegistryPageModule,

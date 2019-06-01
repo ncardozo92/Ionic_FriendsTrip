@@ -69,20 +69,25 @@ export class LoginPage implements OnInit {
 
   public login(){
 
-  if(this.userLogin.email == undefined || this.userLogin.contrasenia == undefined){
+      if(this.userLogin.usuario == undefined || this.userLogin.contrasenia == undefined){
 
-      this.showAlert("Los campos no pueden estar vacíos.");
-    }
-    else{
-      //el tema de la session debo trabajarlo mas adelante porque no puedo realizarlo desde el lab
-      if(this.userLogin.email == "developer" && this.userLogin.contrasenia == "developer"){
-        
-        this.sessionService.saveUserData(1,this.userLogin.email )
-        this.router.navigate(["search"]);
+          this.showAlert("Los campos no pueden estar vacíos");
+        }
+        else{
+
+          this.sessionService.login(this.userLogin).subscribe(data=>{
+
+            this.sessionService.saveUserData(data.body);
+            this.router.navigate(["search"])
+          }, error =>{
+
+            switch(error.status){
+
+              case 404: this.showAlert("usuario y/o contraseña incorrectos");
+                        break;
+              case 500: this.showAlert("Se ha producido un error en el servidor, inténtelo más tarde");
+            }
+          });
       }
-      else{
-        this.showAlert("Usuario y/o contraseña incorrectos");
-      }
     }
-  }
 }

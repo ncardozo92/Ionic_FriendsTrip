@@ -25,18 +25,14 @@ export class GuideRegistryPage implements OnInit {
         "email": new FormControl("",[Validators.email,Validators.required]),
         "contrasenia1": new FormControl("",[Validators.required,Validators.minLength(4)]),
         "contrasenia2": new FormControl("",[Validators.required,Validators.minLength(4)]),
-        "matricula": new FormControl("",[Validators.required])
+        "matricula": new FormControl("",[Validators.required]),
+        "paisOrigen": new FormControl("",[Validators.required])
       });
     }
 
     public register(): void{
-      if(!this.registryForm.invalid){
-  
-        console.log("es valido");
-        //this.router.navigate(["home"]);
-  
-        this.dismiss();
-      }
+      
+      console.log(this.registryForm.value);
         
     }
 
