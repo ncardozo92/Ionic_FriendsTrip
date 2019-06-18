@@ -40,7 +40,11 @@ export class UserService {
     );
   }
 
-  //se retorna la promise
+  public getJwt(): any{
+
+    return this.storage.get(this.TOKEN);
+  }
+
   public getUserId(): Promise<any>{
 
     return this.storage.get(this.USER_ID);

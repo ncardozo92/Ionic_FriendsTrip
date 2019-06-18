@@ -6,8 +6,8 @@
     <ion-title>Mis viajes</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+    <travel *ngFor="let travel of travels" [item]="travel" (onEdit)="edit($event)"></travel>
     <ion-fab slot="fixed" horizontal="end" vertical="bottom" color="primary" (click)="showModal('create')">
       <ion-fab-button>
         <ion-icon name="add"></ion-icon>

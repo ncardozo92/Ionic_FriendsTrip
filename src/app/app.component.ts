@@ -14,8 +14,12 @@ export class AppComponent implements AfterViewInit, OnInit {
     
   public appPages = [
     {
-      title: 'Búsqueda',
-      url: '/search'
+      title: 'Búsqueda por destino',
+      url: '/search-by-destination'
+    },
+    {
+      title: 'Búsqueda por vuelo',
+      url: '/search-by-flight'
     },
     {
       title: 'Perfil',

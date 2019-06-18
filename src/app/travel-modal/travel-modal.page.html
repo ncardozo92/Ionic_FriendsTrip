@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title *ngIf="action === 'create'">Nuevo viaje</ion-title>
-    <ion-title *ngIf="action === 'update'">Actualizar viaje</ion-title>
+    <ion-title *ngIf="action === 'update'">Modificar viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,33 +10,57 @@
     <ion-card-content>
         <form [formGroup]="travelForm">
           <ion-item>
-            <ion-label position="stacked">Fecha</ion-label>
-            <ion-datetime display-format="DD MM YYYY" formControlName="fecha"></ion-datetime>
+            <ion-label position="stacked">Fecha de ida</ion-label>
+            <ion-datetime display-format="DD MM YYYY" formControlName="FechaDesde"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Fecha de regreso</ion-label>
+            <ion-datetime display-format="DD MM YYYY" formControlName="FechaHasta"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Aerolínea</ion-label>
+            <ion-input type="text" formControlName="Aerolinea"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Número de vuelo</ion-label>
-            <ion-input type="text" formControlName="numeroVuelo"></ion-input>
+            <ion-input type="text" formControlName="NumeroVuelo"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Origen</ion-label>
+            <ion-input type="text" formControlName="Origen"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Destino</ion-label>
-            <ion-select placeholder="País" formControlName="pais">
-              <!-- faltan las opciones que se traen por API -->
-            </ion-select>
-            <ion-select placeholder="Ciudad" formControlName="ciudad">
-              <!-- faltan las opciones que se traen por API -->
-            </ion-select>
+            <ion-input type="text" formControlName="Destino"></ion-input>
           </ion-item>
-          <ion-item>
-            <ion-label position="stacked">Intereses (opcional)</ion-label>
-            <ion-select formControlName="intereses" multiple="true">
-              <!-- faltan las opciones ¿se traen por API o se definen estaticos? -->
-            </ion-select>
-          </ion-item>
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Intereses</ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresActividades"></ion-checkbox>Actividades
+            </ion-item>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresTraslados"></ion-checkbox>Translados
+            </ion-item>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresExcursiones"></ion-checkbox>Excursiones
+            </ion-item>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresAmistades"></ion-checkbox>Amistades
+            </ion-item>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresAlojamiento"></ion-checkbox>Alojamiento
+            </ion-item>
+            <ion-item>
+              <ion-checkbox mode="ios" formControlName="InteresOtros"></ion-checkbox>Otros
+            </ion-item>
+          </ion-list>
           <ion-item>
             <ion-label position="stacked">Alojamiento (opcional)</ion-label>
-            <ion-input type="text" formControlName="alojamiento"></ion-input>
+            <ion-input type="text" formControlName="Alojamiento"></ion-input>
           </ion-item>
-          <ion-button color="primary" *ngIf="action === 'create'" disabled="travelForm.invalid" (click)="create()" expand="block">Guardar</ion-button>
+          <ion-button color="primary" *ngIf="action === 'create'" (click)="create()" expand="block">Guardar</ion-button>
           <ion-button color="primary" *ngIf="action === 'update'" (click)="update()" expand="block">Actualizar</ion-button>
           <ion-button color="light"  (click)="dismissModal()" expand="block">Volver</ion-button>
         </form>

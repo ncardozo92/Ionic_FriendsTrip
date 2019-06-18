@@ -1,3 +1,42 @@
-<p>
-  travel works!
-</p>
+<ion-card [style.display]="display? 'block' : 'none'">
+  <ion-card-header>
+    <ion-card-title>{{ item.Origen }} - {{ item.Destino }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>Fecha de ida: {{ item.FechaDesde }}</div>
+    <div>Fecha de regreso: {{ item.FechaHasta }}</div>
+    <div>Aerolinea: {{ item.Aerolinea }}</div>
+    <div>Número de vuelo: {{ item.NumeroVuelo }}</div>
+    <div>Alojamiento: {{ item.Alojamiento }}</div>
+    <ion-label>Intereses</ion-label>
+    <div>
+      <ion-chip color="primary" *ngIf="item.InteresActividades == true">
+        <ion-label>Actividades</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" *ngIf="item.InteresExcursiones == true">
+        <ion-label>Excursiones</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" *ngIf="item.InteresTraslados == true">
+        <ion-label>Traslados</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" *ngIf="item.InteresAmistades == true">
+        <ion-label>Amistades</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" *ngIf="item.InteresAlojamiento == true">
+        <ion-label>Alojamiento</ion-label>
+      </ion-chip>
+      <ion-chip color="primary" *ngIf="item.InteresOtros == true">
+        <ion-label>Otros</ion-label>
+      </ion-chip>
+    </div>
+    <div>
+      <ion-button color="danger" size="small" (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" size="small" (click)="edit()">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-content>
+  
+</ion-card>
