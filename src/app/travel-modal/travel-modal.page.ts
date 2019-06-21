@@ -94,8 +94,8 @@ export class TravelModalPage implements OnInit {
     else{
 
       this.travelService.create(this.travelForm.value,this.token).subscribe( 
-        data => this.dismissModal(),
-        error => this.showAlert(error.error)
+       () => this.dismissModal(),
+        error => this.showAlert(error.messsage)
         );
     }
   }
@@ -105,7 +105,7 @@ export class TravelModalPage implements OnInit {
     console.log(this.travelForm.value)
     this.travelService.update(this.travelForm.value, this.token).subscribe(
       () => this.dismissModal(),
-      error => console.log(error)
+      error => this.showAlert(error.message)
       );
     
     

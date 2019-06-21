@@ -1,0 +1,35 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ item.Origen + " - " + item.Destino }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <div>
+      <ion-label>Vuelo</ion-label><br>
+      <ion-label>Aerolínea: {{ item.Aerolinea }}</ion-label><br>
+      <ion-label>Número de vuelo: {{ item.NumeroVuelo }}</ion-label>
+    </div>
+    <div>
+      <ion-label>Intereses</ion-label>
+      <div>
+        <ion-chip *ngIf="item.InteresActividades" color="primary">
+          <ion-label>Actividades</ion-label>
+        </ion-chip>
+        <ion-chip *ngIf="item.InteresExcursiones" color="primary">
+          <ion-label>Excursiones</ion-label>
+        </ion-chip>
+        <ion-chip *ngIf="item.InteresTraslados" color="primary">
+          <ion-label>Traslados</ion-label>
+        </ion-chip>
+        <ion-chip *ngIf="item.InteresAmistades" color="primary">
+          <ion-label>Amistades</ion-label>
+        </ion-chip>
+        <ion-chip *ngIf="item.InteresAlojamiento" color="primary">
+          <ion-label>Alojamiento</ion-label>
+        </ion-chip>
+        <ion-chip *ngIf="item.InteresOtros" color="primary">
+          <ion-label>Otros</ion-label>
+        </ion-chip>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

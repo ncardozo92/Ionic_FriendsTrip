@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { TravelService } from '../services/travel.service';
+import { SearchRequest } from '../models/SearchRequest';
+import { SearchResponse } from '../models/SearchResponse';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-search',
@@ -9,54 +14,52 @@ import { Router } from '@angular/router';
 })
 export class SearchPage implements OnInit {
 
-  private searchForm : FormGroup;
+  //private searchForm : FormGroup;
+  private destination: string = "";
+  private flight: string = "";
+  private token: string;
+  private searchResults: SearchResponse[] = [];
 
-  private paises: any = [
-    {
-      id : 1,
-      nombre: "Argentina"
-    },
-    {
-      id : 2,
-      nombre: "Uruguay"
-    },
-    {
-      id : 1,
-      nombre: "EEUU"
-    }
-  ];
-
-  private ciudades = [
-    {
-      id: 1,
-      nombre: "Buenos Aires"
-    },
-    {
-      id: 2,
-      nombre: "Montevideo"
-    },
-    {
-      id: 3,
-      nombre: "New York"
-    }
-  ];
-
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(
+    private userServie : UserService,
+    private travelService : TravelService,
+    private alertController : AlertController
+    ) { }
 
   ngOnInit() {
 
-    this.searchForm = this.formBuilder.group({
-      "ciudad": new FormControl("",[Validators.required]),
-      "pais" : new FormControl("",[Validators.required]),
-      "fechaViaje": new FormControl("",[Validators.required]),
-      "numeroVuelo" : new FormControl("",[Validators.required])
+    this.userServie.getJwt().then( data =>{
+
+      this.token = data;
     });
   }
 
-  public searchResults(){
+  async showAlert(message: string){
 
-    console.log(this.searchForm.get("fechaInicio").value);
-    console.log(this.searchForm.invalid)
+    const alert = await this.alertController.create({
+      message : message,
+      buttons: [{text : "OK", role: "dissmiss"}]
+    });
+
+    return alert.present();
+  }
+
+  public search(){
+
+    if(this.destination == "" && this.flight == ""){
+      this.showAlert("Complete uno de los campos para buscar");
+      return;
+    }
+
+    let request: SearchRequest = new SearchRequest();
+
+    request.Destino = this.destination == "" ? null : this.destination;
+    request.Vuelo = this.flight == "" ? null : this.flight;
+
+    this.travelService.searchTravels(request,this.token).subscribe(
+      response => {this.searchResults = response.body; console.log(this.searchResults);},
+      error => console.log(error)
+    );
   }
 
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from "@angular/common/http";
 import { UserService } from './user.service';
 import { TravelResponse } from '../models/TravelResponse';
+import { SearchRequest } from '../models/SearchRequest';
+import { SearchResponse } from '../models/SearchResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -70,5 +72,14 @@ export class TravelService {
     const headers = new HttpHeaders({"Authorization": token});
 
     return this.http.put(`${this.URL}/Modificar`,travel,{"observe" : "response", headers : headers});
+  }
+
+  public searchTravels(request: SearchRequest, token: string){
+
+    let headers = new HttpHeaders({"Authorization": token});
+
+    console.log(request);
+
+    return this.http.post<SearchResponse[]>(`${this.URL}/BuscarViajes`,request, {"observe" : "response", "headers" : headers});
   }
 }

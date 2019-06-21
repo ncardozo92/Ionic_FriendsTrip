@@ -12,9 +12,7 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'search-results', loadChildren: './search-results/search-results.module#SearchResultsPageModule' },
   { path: 'travels-list', loadChildren: './travels-list/travels-list.module#TravelsListPageModule' },
-  { path: 'travel-modal', loadChildren: './travel-modal/travel-modal.module#TravelModalPageModule' },
-  { path: 'search-by-destination', loadChildren: './search-by-destination/search-by-destination.module#SearchByDestinationPageModule' },
-  { path: 'search-by-flight', loadChildren: './search-by-flight/search-by-flight.module#SearchByFlightPageModule' }
+  { path: 'travel-modal', loadChildren: './travel-modal/travel-modal.module#TravelModalPageModule' }
 ];
 
 @NgModule({
