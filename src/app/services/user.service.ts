@@ -77,4 +77,17 @@ export class UserService {
 
     return this.http.post<any>(`${this.API_URL}/Usuario/registroViajero`,requestBody,{observe: "response"});
   }
+
+  public registerGuide(guide: FormGroup): Observable<HttpResponse<any>>{
+
+    let requestBody = {
+      "NombreUsuario" : guide.get("userName").value,
+      "Email" : guide.get("email").value,
+      "Password" : guide.get("contrasenia1").value,
+      "Nacionalidad" : guide.get("paisOrigen").value,
+      "MatriculaGuia" : guide.get("matricula").value
+    }
+
+    return this.http.post<any>(`${this.API_URL}/Usuario/registroGuia`,requestBody,{observe: "response"});
+  }
 }

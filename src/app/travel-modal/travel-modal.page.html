@@ -1,5 +1,10 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title *ngIf="action === 'create'">Nuevo viaje</ion-title>
     <ion-title *ngIf="action === 'update'">Modificar viaje</ion-title>
   </ion-toolbar>
@@ -62,7 +67,6 @@
           </ion-item>
           <ion-button color="primary" *ngIf="action === 'create'" (click)="create()" expand="block">Guardar</ion-button>
           <ion-button color="primary" *ngIf="action === 'update'" (click)="update()" expand="block">Actualizar</ion-button>
-          <ion-button color="light"  (click)="dismissModal()" expand="block">Volver</ion-button>
         </form>
     </ion-card-content>
   </ion-card>

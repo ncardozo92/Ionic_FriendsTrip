@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
-  { path: 'search-results', loadChildren: './search-results/search-results.module#SearchResultsPageModule' },
   { path: 'travels-list', loadChildren: './travels-list/travels-list.module#TravelsListPageModule' },
   { path: 'travel-modal', loadChildren: './travel-modal/travel-modal.module#TravelModalPageModule' }
 ];

@@ -34,10 +34,8 @@ export class TravelService {
 
   public getAll(token: string){
 
-    console.log(token);
     const headers = new HttpHeaders({"Authorization": token});
     
-    console.log(headers.get("Authorization"));
     return this.http.get<TravelResponse[]>(
       `${this.URL}/Listar`,
       {

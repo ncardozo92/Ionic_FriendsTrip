@@ -87,15 +87,13 @@ export class TravelModalPage implements OnInit {
 
   public create(): void{
 
-    console.log(this.travelForm.value);
-    console.log(this.travelForm.invalid);
     if(this.travelForm.invalid)
       this.showAlert("Ingrese los campos que son obligatorios");
     else{
 
       this.travelService.create(this.travelForm.value,this.token).subscribe( 
        () => this.dismissModal(),
-        error => this.showAlert(error.messsage)
+        error => this.showAlert("Ha ocurrido un problema en el servidor. Inténtelo más tarde")
         );
     }
   }
@@ -105,7 +103,7 @@ export class TravelModalPage implements OnInit {
     console.log(this.travelForm.value)
     this.travelService.update(this.travelForm.value, this.token).subscribe(
       () => this.dismissModal(),
-      error => this.showAlert(error.message)
+      error => this.showAlert("Ha ocurrido un problema en el servidor. Inténtelo más tarde")
       );
     
     

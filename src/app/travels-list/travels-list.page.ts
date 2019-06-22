@@ -27,8 +27,6 @@ export class TravelsListPage implements  OnInit {
     this.userService.getJwt().then(data => {
       
       this.token = data;
-      console.log(this.token)
-
       this.getAllTravels();
     },
     error => console.log(error)
@@ -41,7 +39,6 @@ export class TravelsListPage implements  OnInit {
     this.travelService.getAll(this.token).subscribe((data)=>{
       
       this.travels = data.body;
-      console.log(this.travels)
     },
     error => console.log(error)
     );
@@ -62,7 +59,6 @@ export class TravelsListPage implements  OnInit {
 
       
       this.getAllTravels();
-      console.log(this.travels);
     });
 
     return modal.present();
@@ -70,8 +66,6 @@ export class TravelsListPage implements  OnInit {
 
   public edit(id: number): void{
 
-    console.log("recibo el onEdit");
-    console.log(id);
     this.showModal("update", id);
   }
 

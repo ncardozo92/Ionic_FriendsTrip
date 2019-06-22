@@ -45,7 +45,7 @@ export class RegistryPage implements OnInit {
 
           case 400: this.showToast("Datos incorrectos");
                     break;
-          default: this.showToast(error.error);
+          default: this.showToast(error.message);
                     break;
         }
       });
