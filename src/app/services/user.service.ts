@@ -5,6 +5,7 @@ import { UserLogin } from '../models/UserLogin';
 import { Observable } from 'rxjs';
 import { LoginResponse } from '../models/LoginResponse';
 import { FormGroup } from '@angular/forms';
+import { NacionalidadResponse } from '../models/NacionalidadResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +73,7 @@ export class UserService {
       "NombreUsuario" : user.get("userName").value,
       "Email" : user.get("email").value,
       "Password" : user.get("contrasenia1").value,
-      "PaisOrigen" : user.get("paisOrigen").value
+      "Nacionalidad" : user.get("paisOrigen").value
     }
 
     return this.http.post<any>(`${this.API_URL}/Usuario/registroViajero`,requestBody,{observe: "response"});
@@ -89,5 +90,10 @@ export class UserService {
     }
 
     return this.http.post<any>(`${this.API_URL}/Usuario/registroGuia`,requestBody,{observe: "response"});
+  }
+
+  public getNationality(){
+
+    return this.http.get<NacionalidadResponse[]>(`${this.API_URL}/Usuario/Nacionalidades`,{"observe" : "response"});
   }
 }

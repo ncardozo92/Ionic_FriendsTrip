@@ -3,6 +3,7 @@ import { ModalController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { NacionalidadResponse } from '../models/NacionalidadResponse';
 
 @Component({
   selector: 'app-guide-registry',
@@ -12,6 +13,8 @@ import { UserService } from '../services/user.service';
 export class GuideRegistryPage implements OnInit {
 
   private registryForm: FormGroup;
+  
+  private nacionalidades: NacionalidadResponse[] = [];
 
   constructor(
     private modalController : ModalController, 
@@ -29,8 +32,13 @@ export class GuideRegistryPage implements OnInit {
         "userName": new FormControl("",[Validators.required]),
         "contrasenia2": new FormControl("",[Validators.required,Validators.minLength(4)]),
         "matricula": new FormControl("",[Validators.required]),
-        "paisOrigen": new FormControl("",[Validators.required])
+        "paisOrigen": new FormControl(null,[Validators.required])
       });
+
+      this.userService.getNationality().subscribe(
+        data => this.nacionalidades = data.body,
+        error => this.showToast(error.error)
+      );
     }
 
     public register(): void{

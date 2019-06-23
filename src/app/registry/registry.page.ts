@@ -3,6 +3,7 @@ import {ModalController, ToastController} from "@ionic/angular";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { NacionalidadResponse } from '../models/NacionalidadResponse';
 
 @Component({
   selector: 'app-registry',
@@ -12,6 +13,8 @@ import { UserService } from '../services/user.service';
 export class RegistryPage implements OnInit {
 
   private registryForm: FormGroup;
+
+  private nacionalidades: NacionalidadResponse[] = [];
 
   constructor(
     private modalController : ModalController,
@@ -28,11 +31,17 @@ export class RegistryPage implements OnInit {
       "email": new FormControl("",[Validators.email,Validators.required]),
       "contrasenia1": new FormControl("",[Validators.required,Validators.minLength(4)]),
       "contrasenia2": new FormControl("",[Validators.required,Validators.minLength(4)]),
-      "paisOrigen": new FormControl("",[Validators.required])
+      "paisOrigen": new FormControl(null,[Validators.required])
     });
+
+    this.userService.getNationality().subscribe(
+      data => this.nacionalidades = data.body,
+      error => this.showToast(error.error)
+    );
   }
 
   public register(): void{
+
     if(!this.registryForm.invalid){
 
       this.userService.registerUser(this.registryForm).subscribe(data=>{
@@ -45,7 +54,7 @@ export class RegistryPage implements OnInit {
 
           case 400: this.showToast("Datos incorrectos");
                     break;
-          default: this.showToast(error.message);
+          default: this.showToast(error.error);
                     break;
         }
       });
