@@ -1,12 +1,19 @@
 <ion-card>
-  <ion-card-header>
-    <ion-card-title>{{ item.Origen + " - " + item.Destino }}</ion-card-title>
-  </ion-card-header>
+  <ion-item>
+    <ion-button fill="outline" slot="end">
+      <ion-icon name="heart-empty"></ion-icon>
+    </ion-button>
+    <ion-card-header>
+      <ion-card-title>{{ (item.Destino != "")?(item.Origen + " - " + item.Destino) : (item.Origen) }}</ion-card-title>
+    </ion-card-header>
+  </ion-item>
   <ion-card-content>
+    <ion-label>Desde {{ item.FechaDesde | date : "dd/MM/yyyy HH:mm" }} Hasta {{ (item.FechaHasta != null)? (item.FechaHasta | date : "dd/MM/yyyy HH:mm") : "Indeterminado" }}</ion-label><br>
+    <ion-label>Alojamiento: {{ (item.Alojamiento != "")? item.Alojamiento : "No especificado" }}</ion-label>
     <div>
-      <ion-label>Vuelo</ion-label><br>
-      <ion-label>Aerolínea: {{ item.Aerolinea }}</ion-label><br>
-      <ion-label>Número de vuelo: {{ item.NumeroVuelo }}</ion-label>
+      <h4>Vuelo</h4><br>
+      <ion-label>Aerolínea: {{ (item.Aerolinea != "") ? item.Aerolinea : "No especificado" }}</ion-label><br>
+      <ion-label>Número de vuelo: {{ (item.NumeroVuelo != "")? item.NumeroVuelo : "No especificado"}}</ion-label>
     </div>
     <div>
       <ion-label>Intereses</ion-label>

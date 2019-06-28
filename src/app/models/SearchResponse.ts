@@ -9,4 +9,12 @@ export class SearchResponse{
     public InteresAmistades: boolean;
     public InteresAlojamiento: boolean;
     public InteresOtros: boolean;
+    public FechaDesde: string;
+    public FechaHasta: string;
+    public Alojamiento: string;
+
+    //datos del usuario
+    public IdUsuario: number;
+    public NombreUsuario: string;
+    public Email: string;
 }
