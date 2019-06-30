@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "415810105875",
+    "firebase_url": "https://friendstrip-cede7.firebaseio.com",
+    "project_id": "friendstrip-cede7",
+    "storage_bucket": "friendstrip-cede7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415810105875:android:266e743a458267a1",
+        "android_client_info": {
+          "package_name": "com.friendstrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415810105875-1qju4qjgh3p0bc862hi47dk7v3cjp3vv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOKUsDDCqS2RLe-LSKgYYDmXcVNeGWYic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415810105875-1qju4qjgh3p0bc862hi47dk7v3cjp3vv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

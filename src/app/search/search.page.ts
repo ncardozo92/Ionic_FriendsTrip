@@ -18,19 +18,25 @@ export class SearchPage implements OnInit {
   private destination: string = "";
   private flight: string = "";
   private token: string;
+  private userId: number;
   private searchResults: SearchResponse[] = [];
 
   constructor(
-    private userServie : UserService,
+    private userService : UserService,
     private travelService : TravelService,
     private alertController : AlertController
     ) { }
 
   ngOnInit() {
 
-    this.userServie.getJwt().then( data =>{
+    this.userService.getJwt().then( data =>{
 
       this.token = data;
+    });
+
+    this.userService.getUserId().then(data =>{
+
+      this.userId = data;
     });
   }
 
@@ -62,4 +68,13 @@ export class SearchPage implements OnInit {
     );
   }
 
+  public followUser(idFollowedUser: number){
+
+    console.log("id del usuario seguido: " + idFollowedUser);
+    
+    return this.userService.followUser(this.userId, idFollowedUser,this.token).subscribe(
+      () => console.log("pendiente aceptación del usuario con id " + idFollowedUser),
+      error => console.log( error.error)
+    );
+  }
 }

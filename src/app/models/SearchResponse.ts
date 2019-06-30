@@ -12,7 +12,7 @@ export class SearchResponse{
     public FechaDesde: string;
     public FechaHasta: string;
     public Alojamiento: string;
-
+    public EstadoSeguimiento: string;
     //datos del usuario
     public IdUsuario: number;
     public NombreUsuario: string;

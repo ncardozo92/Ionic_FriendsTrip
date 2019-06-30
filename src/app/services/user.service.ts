@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from "@angular/common/http";
+import { HttpClient, HttpResponse, HttpHeaders } from "@angular/common/http";
 import { Storage } from "@ionic/storage";
 import { UserLogin } from '../models/UserLogin';
 import { Observable } from 'rxjs';
@@ -95,5 +95,12 @@ export class UserService {
   public getNationality(){
 
     return this.http.get<NacionalidadResponse[]>(`${this.API_URL}/Usuario/Nacionalidades`,{"observe" : "response"});
+  }
+
+  public followUser(idFollower: number, idFollowing: number, token: string){
+
+    let headers = new HttpHeaders({"Authorization" : token});
+
+    return this.http.post<any>(`${this.API_URL}/Usuario/Seguir/${idFollower}/${idFollowing}`,null, {headers: headers, observe: "response"});
   }
 }
