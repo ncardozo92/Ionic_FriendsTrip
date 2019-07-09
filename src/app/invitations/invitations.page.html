@@ -10,11 +10,11 @@
 <ion-content>
   <h2 *ngIf="invitations.length == 0">No hay invitaciones nuevas</h2>
   <ion-list *ngIf="invitations.length > 0">
-    <ion-item *ngFor="let invitation of invitations">
+    <ion-item *ngFor="let invitation of invitations, let i = index">
       <ion-label>
         <p>{{ invitation.NombreUsuario }} te ha enviado una invitación<br> para viajar</p>
-        <ion-button color="danger" size="small" (click)="aceptInvitation(invitation.IdResponsable,'N')">Rechazar</ion-button>
-        <ion-button color="success" size="small" (click)="aceptInvitation(invitation.IdResponsable,'Y')">Aceptar</ion-button>
+        <ion-button color="danger" size="small" (click)="aceptInvitation(invitation.IdResponsable,'N', i)">Rechazar</ion-button>
+        <ion-button color="success" size="small" (click)="aceptInvitation(invitation.IdResponsable,'Y', i)">Aceptar</ion-button>
       </ion-label>
     </ion-item>
   </ion-list>

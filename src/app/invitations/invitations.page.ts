@@ -40,10 +40,14 @@ export class InvitationsPage implements OnInit {
     });
   }
 
-  public aceptInvitation(idInviter: number, response: string): void{
+  public aceptInvitation(idInviter: number, response: string, index: number): void{ 
+    // index se usa para remover el item del array
 
     this.friendsService.aceptInvitation(idInviter,this.userId, response, this.token).subscribe(
-      ()=> console.log("se actualizó la invitacion"),
+      ()=> {
+        console.log("se actualizó la invitacion");
+        this.invitations.splice(index,1);
+      },
       (error)=> console.log(error.error)
     );
   }

@@ -23,5 +23,5 @@
       <ion-button color="primary" (click)="search()" expand="block">Buscar</ion-button>
     </ion-card-content>
   </ion-card>
-  <search-result *ngFor="let travel of searchResults" [item]="travel" [idTraveler]="userId" (inviteEvent)="inviteUser($event)"></search-result>
+  <search-result *ngFor="let travel of searchResults" [item]="travel" (inviteEvent)="inviteUser($event)"></search-result>
 </ion-content>

@@ -5,7 +5,7 @@
     </ion-card-header>
   </ion-item>
   <ion-card-content>
-    <ion-button [fill]="inviteButtonStyle.fill" slot="end" (click)="invite(item.IdUsuario)" [disabled]="inviteButtonStyle.disabled" size="small">
+    <ion-button [fill]="inviteButtonStyle.fill" slot="end" (click)="invite(item.IdUsuario)" [disabled]="inviteButtonStyle.disabled" size="small" [style.visibility]="(inviteButtonStyle.visible)?'visible':'hidden'">
       <ion-icon [name]="inviteButtonStyle.icon"></ion-icon>
       {{ inviteButtonStyle.text }}
     </ion-button>
