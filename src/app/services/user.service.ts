@@ -96,11 +96,4 @@ export class UserService {
 
     return this.http.get<NacionalidadResponse[]>(`${this.API_URL}/Usuario/Nacionalidades`,{"observe" : "response"});
   }
-
-  public followUser(idFollower: number, idFollowing: number, token: string){
-
-    let headers = new HttpHeaders({"Authorization" : token});
-
-    return this.http.post<any>(`${this.API_URL}/Usuario/Seguir/${idFollower}/${idFollowing}`,null, {headers: headers, observe: "response"});
-  }
 }

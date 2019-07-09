@@ -17,6 +17,10 @@ import { GuideRegistryPage } from './guide-registry/guide-registry.page';
 import { TravelModalPage } from './travel-modal/travel-modal.page';
 import { TravelModalPageModule } from './travel-modal/travel-modal.module';
 import { HttpClientModule } from "@angular/common/http";
+// OneSignal
+import { OneSignal } from '@ionic-native/onesignal/ngx';
+
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +43,9 @@ import { HttpClientModule } from "@angular/common/http";
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    OneSignal,
+    LocalNotifications
   ],
   bootstrap: [AppComponent]
 })

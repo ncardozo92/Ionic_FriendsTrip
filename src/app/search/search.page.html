@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -23,5 +23,5 @@
       <ion-button color="primary" (click)="search()" expand="block">Buscar</ion-button>
     </ion-card-content>
   </ion-card>
-  <search-result *ngFor="let travel of searchResults" [item]="travel" (followEvent)="followUser($event)"></search-result>
+  <search-result *ngFor="let travel of searchResults" [item]="travel" [idTraveler]="userId" (inviteEvent)="inviteUser($event)"></search-result>
 </ion-content>

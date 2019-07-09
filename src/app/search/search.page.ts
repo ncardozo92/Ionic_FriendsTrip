@@ -6,6 +6,7 @@ import { TravelService } from '../services/travel.service';
 import { SearchRequest } from '../models/SearchRequest';
 import { SearchResponse } from '../models/SearchResponse';
 import { AlertController } from '@ionic/angular';
+import { FriendsService } from '../services/friends.service';
 
 @Component({
   selector: 'app-search',
@@ -23,6 +24,7 @@ export class SearchPage implements OnInit {
 
   constructor(
     private userService : UserService,
+    private friendsService : FriendsService,
     private travelService : TravelService,
     private alertController : AlertController
     ) { }
@@ -68,11 +70,11 @@ export class SearchPage implements OnInit {
     );
   }
 
-  public followUser(idFollowedUser: number){
+  public inviteUser(idFollowedUser: number){
 
     console.log("id del usuario seguido: " + idFollowedUser);
     
-    return this.userService.followUser(this.userId, idFollowedUser,this.token).subscribe(
+    return this.friendsService.inviteUser(this.userId, idFollowedUser,this.token).subscribe(
       () => console.log("pendiente aceptación del usuario con id " + idFollowedUser),
       error => console.log( error.error)
     );

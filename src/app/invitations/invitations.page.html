@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="dark">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Invitaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 *ngIf="invitations.length == 0">No hay invitaciones nuevas</h2>
+  <ion-list *ngIf="invitations.length > 0">
+    <ion-item *ngFor="let invitation of invitations">
+      <ion-label>
+        <p>{{ invitation.NombreUsuario }} te ha enviado una invitación<br> para viajar</p>
+        <ion-button color="danger" size="small" (click)="aceptInvitation(invitation.IdResponsable,'N')">Rechazar</ion-button>
+        <ion-button color="success" size="small" (click)="aceptInvitation(invitation.IdResponsable,'Y')">Aceptar</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

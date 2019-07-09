@@ -5,9 +5,9 @@
     </ion-card-header>
   </ion-item>
   <ion-card-content>
-    <ion-button [fill]="followButtonStyle.fill" slot="end" (click)="follow(item.IdUsuario)" [disabled]="followButtonStyle.disabled" size="small">
-      <ion-icon [name]="followButtonStyle.icon"></ion-icon>
-      {{ followButtonStyle.text }}
+    <ion-button [fill]="inviteButtonStyle.fill" slot="end" (click)="invite(item.IdUsuario)" [disabled]="inviteButtonStyle.disabled" size="small">
+      <ion-icon [name]="inviteButtonStyle.icon"></ion-icon>
+      {{ inviteButtonStyle.text }}
     </ion-button>
     <div>
       <ion-label>Desde {{ item.FechaDesde | date : "dd/MM/yyyy HH:mm" }} Hasta {{ (item.FechaHasta != null)? (item.FechaHasta | date : "dd/MM/yyyy HH:mm") : "Indeterminado" }}</ion-label><br>

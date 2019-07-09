@@ -2,7 +2,7 @@
   <ion-split-pane>
     <ion-menu>
       <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="dark">
           <ion-title>Menu</ion-title>
         </ion-toolbar>
       </ion-header>
@@ -14,6 +14,11 @@
               <ion-label>
                 {{p.title}}
               </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item>
+              <ion-label (click)="logout()" color="danger">Cerrar sesión</ion-label>
             </ion-item>
           </ion-menu-toggle>
         </ion-list>

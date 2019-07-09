@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "415810105875",
-    "firebase_url": "https://friendstrip-cede7.firebaseio.com",
-    "project_id": "friendstrip-cede7",
-    "storage_bucket": "friendstrip-cede7.appspot.com"
+    "project_number": "656124771287",
+    "firebase_url": "https://friendstrip-9cf3f.firebaseio.com",
+    "project_id": "friendstrip-9cf3f",
+    "storage_bucket": "friendstrip-9cf3f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:415810105875:android:266e743a458267a1",
+        "mobilesdk_app_id": "1:656124771287:android:28c086fb5d7256d9",
         "android_client_info": {
-          "package_name": "com.friendstrip"
+          "package_name": "ar.edu.unlam.friendstrip"
         }
       },
       "oauth_client": [
         {
-          "client_id": "415810105875-1qju4qjgh3p0bc862hi47dk7v3cjp3vv.apps.googleusercontent.com",
+          "client_id": "656124771287-1b354iiupud8rch96jj2u0fvo3jpf88c.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBOKUsDDCqS2RLe-LSKgYYDmXcVNeGWYic"
+          "current_key": "AIzaSyC_O90BLzKJ6YFIinIGDRiSr5uU17iVD_w"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "415810105875-1qju4qjgh3p0bc862hi47dk7v3cjp3vv.apps.googleusercontent.com",
+              "client_id": "656124771287-1b354iiupud8rch96jj2u0fvo3jpf88c.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
