@@ -10,7 +10,8 @@ import { SearchResponse } from '../models/SearchResponse';
 })
 export class TravelService {
 
-  private URL: string = "http://localhost:61573/api/Viaje";
+  private API_URL: string = "http://localhost:61573/api/Viaje";
+  //private API_URL : string = "http://192.168.0.4:61573/api";
 
   constructor(
     private http : HttpClient,
@@ -24,7 +25,7 @@ export class TravelService {
     
     console.log(headers.get("Authorization"));
       return this.http.get<TravelResponse>(
-        `${this.URL}/Buscar/${id}`,
+        `${this.API_URL}/Buscar/${id}`,
         {
           observe : "response",
           headers : headers
@@ -37,7 +38,7 @@ export class TravelService {
     const headers = new HttpHeaders({"Authorization": token});
     
     return this.http.get<TravelResponse[]>(
-      `${this.URL}/Listar`,
+      `${this.API_URL}/Listar`,
       {
         observe : "response",
         headers : headers
@@ -50,7 +51,7 @@ export class TravelService {
     const headers = new HttpHeaders({"Authorization": token});
 
     return this.http.delete(
-      `${this.URL}/Eliminar/${id}`,
+      `${this.API_URL}/Eliminar/${id}`,
       {
         observe : "response",
         headers : headers
@@ -62,14 +63,14 @@ export class TravelService {
 
     const headers = new HttpHeaders({"Authorization": token});
 
-    return this.http.post(`${this.URL}/Registrar`,travel,{"observe" : "response", headers : headers});
+    return this.http.post(`${this.API_URL}/Registrar`,travel,{"observe" : "response", headers : headers});
   }
 
   public update(travel, token: string){
 
     const headers = new HttpHeaders({"Authorization": token});
 
-    return this.http.put(`${this.URL}/Modificar`,travel,{"observe" : "response", headers : headers});
+    return this.http.put(`${this.API_URL}/Modificar`,travel,{"observe" : "response", headers : headers});
   }
 
   public searchTravels(request: SearchRequest, token: string){
@@ -78,6 +79,6 @@ export class TravelService {
 
     console.log(request);
 
-    return this.http.post<SearchResponse[]>(`${this.URL}/BuscarViajes`,request, {"observe" : "response", "headers" : headers});
+    return this.http.post<SearchResponse[]>(`${this.API_URL}/BuscarViajes`,request, {"observe" : "response", "headers" : headers});
   }
 }

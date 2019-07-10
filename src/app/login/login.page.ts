@@ -86,6 +86,7 @@ export class LoginPage implements OnInit {
               case 404: this.showAlert("usuario y/o contraseña incorrectos");
                         break;
               case 500: this.showAlert("Se ha producido un error en el servidor, inténtelo más tarde");
+                        break;
             }
           });
       }

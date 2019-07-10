@@ -22,6 +22,7 @@ export class UserService {
   private USER_NAME: string = "userName";
   private TOKEN: string = "JWTToken"
   private API_URL : string = "http://localhost:61573/api"
+  //private API_URL : string = "http://192.168.0.4:61573/api";
 
   public saveUserData(loginResponse: LoginResponse): void{
 
