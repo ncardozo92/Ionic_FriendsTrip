@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'travels-list', loadChildren: './travels-list/travels-list.module#TravelsListPageModule' },
   { path: 'travel-modal', loadChildren: './travel-modal/travel-modal.module#TravelModalPageModule' },  { path: 'invitations', loadChildren: './invitations/invitations.module#InvitationsPageModule' },
-  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsPageModule' }
+  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsPageModule' },
+  { path: 'contact-modal', loadChildren: './contact-modal/contact-modal.module#ContactModalPageModule' }
 
 ];
 

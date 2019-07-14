@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { FriendsService } from '../services/friends.service';
 import { FriendResponse } from '../models/Friendresponse';
+import { ModalController } from '@ionic/angular';
+import { ContactModalPage } from '../contact-modal/contact-modal.page';
 
 @Component({
   selector: 'contacts',
@@ -18,7 +20,8 @@ export class ContactsPage implements OnInit {
 
   constructor(
     private userService: UserService,
-    private friendService: FriendsService
+    private friendService: FriendsService,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -40,4 +43,21 @@ export class ContactsPage implements OnInit {
     });
   }
 
+  async showModal(index: number){
+
+    let contact = this.contacts[index]
+    
+    console.log(contact);
+
+    let modal = await this.modalController.create({
+      component : ContactModalPage,
+      componentProps : { 
+        contactInfo : contact,
+        thisUser : this.userId,
+        jwtToken : this.token
+      }
+    });
+
+    await modal.present();
+  }
 }

@@ -51,4 +51,11 @@ export class FriendsService {
 
     return this.http.get<FriendResponse[]>(`${this.API_URL}/Amistad/BuscarAmigos/${idUser}`,{headers : headers, observe: "response"});
   }
+
+  public deleteFriendship(userId: number, friendId: number, token: string){
+
+    let headers = new HttpHeaders({"Authorization" : token});
+
+    return this.http.delete<void>(`${this.API_URL}/Amistad/EliminarAmistad/${userId}/${friendId}`,{headers : headers, observe: "response"});
+  }
 }

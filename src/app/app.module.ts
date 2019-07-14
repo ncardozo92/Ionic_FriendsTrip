@@ -21,10 +21,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { ContactModalPage } from './contact-modal/contact-modal.page';
+import { ContactModalPageModule } from './contact-modal/contact-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [RegistryPage, GuideRegistryPage,TravelModalPage],
+  entryComponents: [RegistryPage, GuideRegistryPage,TravelModalPage,ContactModalPage],
   imports: [
     BrowserModule,
     FormsModule,
@@ -32,6 +34,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ContactModalPageModule,
     RegistryPageModule,
     GuideRegistryPageModule,
     TravelModalPageModule,
