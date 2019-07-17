@@ -13,6 +13,9 @@ export class ContactModalPage implements OnInit {
   @Input() contactInfo: FriendResponse;
   @Input() jwtToken: string;
   @Input() thisUser: number;
+
+  //private rating: number
+  private userRate: number
   
   constructor(
     private modalcontroller: ModalController,
@@ -20,6 +23,8 @@ export class ContactModalPage implements OnInit {
     ) { }
 
   ngOnInit() {
+
+    this.userRate = 0;
   }
 
   public dissmiss(): void{
@@ -36,5 +41,20 @@ export class ContactModalPage implements OnInit {
     },
     error => console.log(error.error)
     );
+  }
+
+  public rate(value, id){
+
+    console.log("califico al usuario con id " + id + "con el valor " + value);
+    if(this.userRate == 0){ // si la calificacion del cliente es igual a 0, entonces se puede calificar
+
+      this.friendService.rate(id,value,this.jwtToken).subscribe(response =>{
+
+        console.log(response.body);
+        this.userRate = value;
+      }, error => {
+        console.log(error.error);
+      });
+    }
   }
 }

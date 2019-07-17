@@ -58,4 +58,11 @@ export class FriendsService {
 
     return this.http.delete<void>(`${this.API_URL}/Amistad/EliminarAmistad/${userId}/${friendId}`,{headers : headers, observe: "response"});
   }
+
+  public rate(ratedUserId:number, rate: number, token: string){
+
+    let headers = new HttpHeaders({"Authorization" : token});
+
+    return this.http.put<string>(`${this.API_URL}/Usuario/Calificar/${ratedUserId}/${rate}`, null, {headers: headers, observe: "response"});
+  }
 }

@@ -9,4 +9,5 @@ export class FriendResponse{
     public Descripcion: string;
     public Nacionalidad: string;
     public UrlFotoPerfil: string;
+    public Calificacion: number;
 }

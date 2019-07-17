@@ -37,6 +37,21 @@
           Borrar contacto
         </ion-button>
       </ion-col>
+      <ion-col size="12" align-self-center>
+        <ion-label color="success"><ion-icon name="star"></ion-icon> {{ contactInfo.Calificacion }}</ion-label><br>
+      </ion-col>
+      <ion-col size="12">
+        <ion-label color="success">Calificar </ion-label><br>
+        <ion-label>
+          <ion-icon 
+            [name]="(userRate >= number)? 'star' : 'star-outline'" 
+            *ngFor="let number of [1,2,3,4,5]" 
+            (click)="rate(number,contactInfo.IdUsuario)" 
+            [ngStyle]="{'font-size': '28px'}"
+            color="success"
+          ></ion-icon>
+        </ion-label>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

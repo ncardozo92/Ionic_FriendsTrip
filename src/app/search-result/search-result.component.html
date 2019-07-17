@@ -19,6 +19,12 @@
       <ion-label>Número de vuelo: {{ (item.NumeroVuelo != "")? item.NumeroVuelo : "No especificado"}}</ion-label>
     </div>
     <div>
+      <h4><b>Usuario</b></h4>
+      <ion-label>{{ item.NombreUsuario }}</ion-label><br>
+      <ion-label>Edad: {{ item.Edad }}</ion-label><br>
+      <ion-label color="success"><ion-icon name="star"></ion-icon> {{ item.Calificacion }}</ion-label>
+    </div>
+    <div>
       <ion-label>Intereses</ion-label>
       <div>
         <ion-chip *ngIf="item.InteresActividades" color="primary">

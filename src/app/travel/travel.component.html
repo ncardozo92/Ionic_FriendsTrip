@@ -3,8 +3,8 @@
     <ion-card-title>{{ item.Origen }} - {{ item.Destino }}</ion-card-title>
   </ion-card-header>
   <ion-card-content>
-    <div>Fecha de ida: {{ item.FechaDesde }}</div>
-    <div>Fecha de regreso: {{ item.FechaHasta }}</div>
+    <div>Fecha de ida: {{ item.FechaDesde | date : "dd/MM/yyyy HH:mm" }}</div>
+    <div>Fecha de regreso: {{ item.FechaHasta | date : "dd/MM/yyyy HH:mm" }}</div>
     <div>Aerolinea: {{ item.Aerolinea }}</div>
     <div>Número de vuelo: {{ item.NumeroVuelo }}</div>
     <div>Alojamiento: {{ item.Alojamiento }}</div>

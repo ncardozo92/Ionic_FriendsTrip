@@ -63,6 +63,7 @@ export class SearchPage implements OnInit {
 
     request.Destino = this.destination == "" ? null : this.destination;
     request.Vuelo = this.flight == "" ? null : this.flight;
+    request.IdUsuario = this.userId;
 
     this.travelService.searchTravels(request,this.token).subscribe(
       response => {this.searchResults = response.body; console.log(this.searchResults);},

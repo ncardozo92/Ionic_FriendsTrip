@@ -17,4 +17,6 @@ export class SearchResponse{
     public IdUsuario: number;
     public NombreUsuario: string;
     public Email: string;
+    public Edad: number;
+    public Calificacion: number;
 }
